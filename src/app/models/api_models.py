@@ -1,5 +1,5 @@
 from datetime import datetime
-from zoneinfo import ZoneInfo
+from pytz import timezone
 
 from pydantic import BaseModel
 
@@ -14,6 +14,6 @@ class CurrencyRate(BaseModel):
         self,
     ) -> str:
         time = datetime.fromisoformat(self.time)
-        vn_timezone_time = time.astimezone(ZoneInfo("Etc/GMT+7"))
+        vn_timezone_time = time.astimezone(timezone("Etc/GMT+7"))
         formatted_date = vn_timezone_time.strftime("%d/%m/%Y %H:%M:%S")
         return formatted_date
