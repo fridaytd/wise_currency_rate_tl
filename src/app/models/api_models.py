@@ -14,6 +14,6 @@ class CurrencyRate(BaseModel):
         self,
     ) -> str:
         time = datetime.fromisoformat(self.time)
-        vn_timezone_time = time.astimezone(ZoneInfo("Asia/Ho_Chi_Minh"))
+        vn_timezone_time = time.astimezone(ZoneInfo("Etc/GMT+7"))
         formatted_date = vn_timezone_time.strftime("%d/%m/%Y %H:%M:%S")
         return formatted_date
